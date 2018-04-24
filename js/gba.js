@@ -126,7 +126,7 @@ GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
 		}
 	}
 	romFile = "../resources/Hookslide.gba";
-	reader.readAsArrayBuffer(romFile);
+	reader.readAsDataURL(romFile);
 };
 
 GameBoyAdvance.prototype.reset = function() {
