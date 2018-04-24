@@ -64,8 +64,8 @@ window.onload = function() {
 			console.log("Running game!");
 			gba.runStable();
 		});
-		console.log(pixelated);
 
+		setPixelated(false);
 		if (!gba.audio.context) {
 			// Remove the sound box if sound isn't available
 			var soundbox = document.getElementById('sound');
