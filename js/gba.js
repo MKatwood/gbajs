@@ -118,6 +118,8 @@ GameBoyAdvance.prototype.hasRom = function() {
 
 GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
 	console.log(romFile);
+	var x = new File("resources/Hookslide.gba");
+	console.log(x);
 	var reader = new FileReader();
 	var self = this;
 	reader.onload = function(e) {
