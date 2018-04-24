@@ -64,6 +64,7 @@ window.onload = function() {
 			console.log("Running game!");
 			gba.runStable();
 		});
+		console.log(pixelated);
 
 		if (!gba.audio.context) {
 			// Remove the sound box if sound isn't available
@@ -222,9 +223,9 @@ function setPixelated(pixelated) {
 	var screen = document.getElementById('screen');
 	var context = screen.getContext('2d');
 	if (context.webkitImageSmoothingEnabled) {
-		context.webkitImageSmoothingEnabled = pixelated;
+		context.webkitImageSmoothingEnabled = !pixelated;
 	} else if (context.mozImageSmoothingEnabled) {
-		context.mozImageSmoothingEnabled = pixelated;
+		context.mozImageSmoothingEnabled = !pixelated;
 	} else if (window.navigator.appName != 'Microsoft Internet Explorer') {
 			if (pixelated) {
 				screen.setAttribute('width', '240');
