@@ -111,7 +111,7 @@ function run(file) {
 	xhr.responseType = "blob";
 	xhr.onload = function() {
 		blob = xhr.response;
-		console.log("reached");
+		console.log(blob);
 	}
 	xhr.send();
 
