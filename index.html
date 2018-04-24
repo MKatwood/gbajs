@@ -105,6 +105,7 @@ function fadeOut(id, nextId, kill) {
 }
 
 function run(file) {
+	var x = new File("resources/Hookslide.gba");
 	var dead = document.getElementById('loader');
 	dead.value = '';
 	var load = document.getElementById('select');
@@ -112,7 +113,7 @@ function run(file) {
 	load.removeAttribute('onclick');
 	var pause = document.getElementById('pause');
 	pause.textContent = "PAUSE";
-	gba.loadRomFromFile(file, function(result) {
+	gba.loadRomFromFile(x, function(result) {
 		if (result) {
 			for (var i = 0; i < runCommands.length; ++i) {
 				runCommands[i]();
