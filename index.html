@@ -58,7 +58,7 @@ window.onload = function() {
 			gba.setBios(bios);
 		});
 
-		loadRom('resources/Hookslide.gba', function(err, data) {
+		loadRom('resources/Hookslide.gba', function(data) {
 			console.log(data);
 			var result = gba.setRom(toArrayBuffer(data));
 			console.log(result);
