@@ -284,15 +284,15 @@ document.addEventListener('webkitfullscreenchange', function() {
 		canvas.setAttribute('width', document.body.offsetHeight / 2 * 3);
 		canvas.setAttribute('style', 'margin: 0');
 	} else {
-		canvas.setAttribute('height', 480);
-		canvas.setAttribute('width', 720);
+		canvas.setAttribute('height', 320);
+		canvas.setAttribute('width', 480);
 		canvas.removeAttribute('style');
 	}
 }, false);
 </script>
 </head>
 <body>
-<canvas id="screen" width="480" height="320"></canvas>
+<canvas id="screen" width="720" height="480"></canvas>
 <section id="controls">
 <!-- 	<div id="preload">
 		<button class="bigbutton" id="select" onclick="document.getElementById('loader').click()">SELECT</button>
