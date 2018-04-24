@@ -25,6 +25,7 @@
 var gba;
 var runCommands = [];
 var debug = null;
+var blob;
 
 try {
 	gba = new GameBoyAdvance();
@@ -48,6 +49,15 @@ try {
 }
 
 window.onload = function() {
+	blob = null;
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://cdn.rawgit.com/MKatwood/gbajs/54e00427/resources/Hookslide.gba");
+	xhr.responseType = "blob";
+	xhr.onload = function() {
+		blob = xhr.response;
+		console.log("reached");
+	}
+
 	if (gba && FileReader) {
 		var canvas = document.getElementById('screen');
 		gba.setCanvas(canvas);
@@ -112,7 +122,7 @@ function run(file) {
 	load.removeAttribute('onclick');
 	var pause = document.getElementById('pause');
 	pause.textContent = "PAUSE";
-	gba.loadRomFromFile(file, function(result) {
+	gba.loadRomFromFile(blob, function(result) {
 		if (result) {
 			for (var i = 0; i < runCommands.length; ++i) {
 				runCommands[i]();
