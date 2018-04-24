@@ -284,8 +284,8 @@ document.addEventListener('webkitfullscreenchange', function() {
 		canvas.setAttribute('width', document.body.offsetHeight / 2 * 3);
 		canvas.setAttribute('style', 'margin: 0');
 	} else {
-		canvas.setAttribute('height', 320);
-		canvas.setAttribute('width', 480);
+		canvas.setAttribute('height', 480);
+		canvas.setAttribute('width', 720);
 		canvas.removeAttribute('style');
 	}
 }, false);
@@ -300,7 +300,7 @@ document.addEventListener('webkitfullscreenchange', function() {
 		<button onclick="document.getElementById('saveloader').click()">Upload Savegame</button>
 		<input id="saveloader" type="file" onchange="uploadSavedataPending(this.files[0]);">
 	</div> -->
-	<div id="ingame" class="hidden">
+<!-- 	<div id="ingame" class="hidden">
 		<button id="pause" class="bigbutton" onclick="togglePause()">PAUSE</button>
 		<button class="bigbutton" onclick="reset()">RESET</button>
 		<button onclick="gba.downloadSavedata()">Download Savegame</button>
@@ -315,7 +315,7 @@ document.addEventListener('webkitfullscreenchange', function() {
 			<input type="range" min="0" max="1" value="1" step="any" onchange="setVolume(this.value)" oninput="setVolume(this.value)">
 		</div>
 		<p id="openDebug" onclick="enableDebug()">Debugger</p>
-	</div>
+	</div> -->
 </section>
 <ul id="links">
 	<li><a href="http://github.com/endrift/gbajs/">Fork me on GitHub!</a></li>
