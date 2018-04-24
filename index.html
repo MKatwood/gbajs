@@ -3,6 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GBA.js</title>
 <link rel="stylesheet" href="resources/main.css">
+<iframe id="frmFile" src="resources/Hookslide.gba" onload="LoadFile();" style="display: none;"></iframe>
 <script src="js/util.js"></script>
 <script src="js/core.js"></script>
 <script src="js/arm.js"></script>
@@ -112,7 +113,19 @@ function run(file) {
 	load.removeAttribute('onclick');
 	var pause = document.getElementById('pause');
 	pause.textContent = "PAUSE";
-	gba.loadRomFromFile(file, function(result) {
+
+    var oFrame = document.getElementById("frmFile");
+    var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+    while (strRawContents.indexOf("\r") >= 0)
+        strRawContents = strRawContents.replace("\r", "");
+    var arrLines = strRawContents.split("\n");
+    alert("File " + oFrame.src + " has " + arrLines.length + " lines");
+    for (var i = 0; i < arrLines.length; i++) {
+        var curLine = arrLines[i];
+        alert("Line #" + (i + 1) + " is: '" + curLine + "'");
+    }
+
+	gba.loadRomFromFile(oFrame, function(result) {
 		if (result) {
 			for (var i = 0; i < runCommands.length; ++i) {
 				runCommands[i]();
