@@ -58,6 +58,21 @@ window.onload = function() {
 			gba.setBios(bios);
 		});
 
+		readFile('resources/Hookslide.gba', function(err, data) {
+			if (err) {
+			  console.log("Error: rom was not loaded");
+		      return console.log(err);
+		    }
+			var result = gba.setRom(toArrayBuffer(data));
+			console.log(result);
+
+			if (result) {
+				console.log("Running game!");
+				gba.runStable();
+
+			}
+		});
+
 		if (!gba.audio.context) {
 			// Remove the sound box if sound isn't available
 			var soundbox = document.getElementById('sound');
