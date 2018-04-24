@@ -60,14 +60,9 @@ window.onload = function() {
 
 		loadRom('resources/Hookslide.gba', function(data) {
 			console.log(data);
-			var result = gba.setRom(toArrayBuffer(data));
-			console.log(result);
-
-			if (result) {
-				console.log("Running game!");
-				gba.runStable();
-
-			}
+			gba.setRom(data);
+			console.log("Running game!");
+			gba.runStable();
 		});
 
 		if (!gba.audio.context) {
