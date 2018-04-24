@@ -112,7 +112,7 @@ function run(file) {
 	load.removeAttribute('onclick');
 	var pause = document.getElementById('pause');
 	pause.textContent = "PAUSE";
-	gba.loadRom(file, function(result) {
+	gba.loadRomFromFile(file, function(result) {
 		if (result) {
 			for (var i = 0; i < runCommands.length; ++i) {
 				runCommands[i]();
@@ -288,11 +288,10 @@ document.addEventListener('webkitfullscreenchange', function() {
 <canvas id="screen" width="480" height="320"></canvas>
 <section id="controls">
 	<div id="preload">
-		<button class="bigbutton" id="select" onclick="run('resources/Hookslide.gba')">SELECT</button>
-		<!-- "document.getElementById('loader').click()">SELECT</button> -->
-		<input id="loader" type="file" accept=".gba" onchange="run('resources/Hookslide.gba');">
-		<!-- <button onclick="document.getElementById('saveloader').click()">Upload Savegame</button> -->
-		<!-- <input id="saveloader" type="file" onchange="uploadSavedataPending(this.files[0]);"> -->
+		<button class="bigbutton" id="select" onclick="document.getElementById('loader').click()">SELECT</button>
+		<input id="loader" type="file" accept=".gba" onchange="run(this.files[0]);">
+		<button onclick="document.getElementById('saveloader').click()">Upload Savegame</button>
+		<input id="saveloader" type="file" onchange="uploadSavedataPending(this.files[0]);">
 	</div>
 	<div id="ingame" class="hidden">
 		<button id="pause" class="bigbutton" onclick="togglePause()">PAUSE</button>
