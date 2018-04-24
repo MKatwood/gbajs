@@ -123,7 +123,7 @@ GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
 	xhr.responseType = "blob";
 	xhr.onload = function() {
 		blob = xhr.response;
-		console.log(blob);
+		console.log("reached");
 	}
 
 	var reader = new FileReader();
@@ -134,7 +134,7 @@ GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
 			callback(result);
 		}
 	}
-	console.log(blob);
+	// console.log(blob);
 
 	reader.readAsArrayBuffer(blob);
 };
