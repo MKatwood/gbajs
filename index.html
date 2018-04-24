@@ -59,7 +59,7 @@ window.onload = function() {
 		});
 
 		loadRom('resources/Hookslide.gba', function(err, data) {
-
+			console.log(data);
 			var result = gba.setRom(toArrayBuffer(data));
 			console.log(result);
 
