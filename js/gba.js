@@ -126,17 +126,17 @@ GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
 		console.log("reached");
 	}
 
-	var reader = new FileReader();
-	var self = this;
-	reader.onload = function(e) {
-		var result = self.setRom(e.target.result);
-		if (callback) {
-			callback(result);
-		}
-	}
-	// console.log(blob);
+	// var reader = new FileReader();
+	// var self = this;
+	// reader.onload = function(e) {
+	// 	var result = self.setRom(e.target.result);
+	// 	if (callback) {
+	// 		callback(result);
+	// 	}
+	// }
+	// // console.log(blob);
 
-	reader.readAsArrayBuffer(blob);
+	// reader.readAsArrayBuffer(blob);
 };
 
 GameBoyAdvance.prototype.reset = function() {
