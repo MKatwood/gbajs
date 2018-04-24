@@ -117,7 +117,15 @@ GameBoyAdvance.prototype.hasRom = function() {
 };
 
 GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
-	console.log(romFile);
+	var blob = null;
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://cdn.rawgit.com/MKatwood/gbajs/54e00427/resources/Hookslide.gba");
+	xhr.responseType = "blob";
+	xhr.onload = function() {
+		blob = xhr.response;
+		console.log(blob);
+	}
+	console.log(blob);
 	var reader = new FileReader();
 	var self = this;
 	reader.onload = function(e) {
@@ -126,7 +134,7 @@ GameBoyAdvance.prototype.loadRomFromFile = function(romFile, callback) {
 			callback(result);
 		}
 	}
-	reader.readAsArrayBuffer(romFile);
+	reader.readAsArrayBuffer(blob);
 };
 
 GameBoyAdvance.prototype.reset = function() {
