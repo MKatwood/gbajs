@@ -107,10 +107,11 @@ function fadeOut(id, nextId, kill) {
 function run(file) {
 	var blob = null;
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "resources/Hookslide.gba");
+	xhr.open("GET", "/resources/Hookslide.gba");
 	xhr.responseType = "blob";
 	xhr.onload = function() {
 		blob = xhr.response;
+		console.log("reached");
 	}
 	xhr.send();
 
