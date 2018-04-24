@@ -107,7 +107,7 @@ function fadeOut(id, nextId, kill) {
 function run(file) {
 	var blob = null;
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/resources/Hookslide.gba");
+	xhr.open("GET", "https://cdn.rawgit.com/MKatwood/gbajs/54e00427/resources/Hookslide.gba");
 	xhr.responseType = "blob";
 	xhr.onload = function() {
 		blob = xhr.response;
